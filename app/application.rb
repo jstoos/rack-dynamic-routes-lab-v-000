@@ -7,7 +7,7 @@ class Application
     if req.path=="/items/"
       item_title = req.path.split("/items/").last
       item = @@items.find {|i| i.name == item_title
-      resp.write item.name
+      resp.write item.price
 
       if items.all.include?(env)
         resp.write "The price of that item is #{}"
