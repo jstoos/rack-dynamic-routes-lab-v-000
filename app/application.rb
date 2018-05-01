@@ -5,6 +5,9 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path=="/items/"
+      req.path.split("/items/").last
+      item = @@items.find {|i| i.name == item_name}
+      
       if items.all.include?(env)
         resp.write "The price of that item is #{}"
         resp.status = 200
