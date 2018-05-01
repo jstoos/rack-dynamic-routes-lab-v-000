@@ -5,7 +5,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path=="/items/"
-      if #(include logic here for item)
+      if items.all.include?(env)
         resp.write "The price of that item is #{}"
         resp.status = 200
       else
