@@ -7,15 +7,13 @@ class Application
     if req.path=="/items/"
       item_title = req.path.split("/items/").last
       item = @@items.find {|i| i.name == item_title
-      resp.write item.price
-
-      if items.all.include?(env)
-        resp.write "The price of that item is #{}"
-        resp.status = 200
-      else
-        resp.write "Item not found"
-        resp.status = 400
-      end
+        if item.price != nil
+          resp.write "The price of that item is #{item.price}"
+          resp.status = 200
+        else
+          resp.write "Item not found"
+          resp.status = 400
+        end
     else
       resp.write "Route not found"
       resp.status = 404
