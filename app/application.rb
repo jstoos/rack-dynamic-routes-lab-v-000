@@ -1,12 +1,12 @@
-class Application 
+class Application
 
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if req.path=="/"
-      resp.write ""
-    else 
+    if req.path=="/items/"
+      resp.write "The price of that item is "
+    else
       resp.write "Route not found"
       resp.status = 404
     end
